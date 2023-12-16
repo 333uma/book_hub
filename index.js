@@ -30,13 +30,22 @@ const books = require('./books.json');
 const shelf_books = require('./shelf.json');
 
 
-app.get("/", async (request, response) => {
+app.get("/",(request, response) => {
     response.send(books);
 })
 
-app.get("/shelf", async (request, response) => {
+app.get("/shelf",(request, response) => {
     response.send(shelf_books);
 });
+
+app.get("/books/:id", (request,response) => {
+    const {id} = request.params;
+    const index = shelf_books.books.findIndex(object => {
+        return object.id === id
+    })
+
+    response.send(shelf_books.books[index]);
+})
 
 app.listen(port, () => {
     console.log(`Server Running on: ${port}`);
