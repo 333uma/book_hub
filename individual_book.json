@@ -1,0 +1,12 @@
+{
+    "book_details": {
+        "id": "1055f585-559b-4fe6-b9b0-d100b52b0389",
+        "title": "The Tempest",
+        "read_status": "Want To Read",
+        "rating": 4.2,
+        "author_name": "Willam Shakespeare",
+        "cover_pic": "https://assets.ccbp.in/frontend/react-js/the-tempest-book.png",
+        "about_book": "The Tempest is a play by English playwright William Shakespeare, probably written in 1610 to 1611, and thought to be one of the last plays that Shakespeare wrote alone. The play contains music and songs that evoke the spirit of enchantment on the island.",
+        "about_author": "Penned by the world's greatest dramatist, William Shakespeare, The Tempest introduced the concept of tragicomedy to drama literature. The play is set on a remote island, where Prospero, the rightful Duke of Milan and his daughter Miranda reside for the past 12 years."
+    }
+}
