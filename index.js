@@ -1,13 +1,16 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require('cors');
+app.use(cors());
 
 const {open} = require("sqlite");
 const sqlite3 = require("sqlite3");
 const dbPath = path.join(__dirname,"data.db");
 const port = 4000;
 
-const b = require('./books.json');
+const books = require('./books.json');
+const shelf_books = require('./shelf.json');
 
 let db = null;
 
@@ -32,15 +35,11 @@ const initializeDBAndServer = async () => {
 initializeDBAndServer();
 
 app.get("/", async (request, response) => {
-    const getBooks = `SELECT * FROM books`;
-    const book = await db.all(getBooks);
-    response.send(book);
+    response.send(books);
 })
 
-app.get("/books/:id/", async (request, response) => {
-    const { id } = request.params;
-    const getBook = `SELECT * FROM books WHERE id = ${id};`;
-    const x = await db.get(getBook);
-    response.send(x);
-    
+app.get("/shelf", async (request, response) => {
+    response.send(shelf_books);
 })
+
+app.get("/books/:id", )
