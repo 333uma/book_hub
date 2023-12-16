@@ -4,14 +4,9 @@ const path = require("path");
 const cors = require('cors');
 app.use(cors());
 
-const {open} = require("sqlite");
+/*const {open} = require("sqlite");
 const sqlite3 = require("sqlite3");
-const dbPath = path.join(__dirname,"data.db");
-const port = 4000;
-
-const books = require('./books.json');
-const shelf_books = require('./shelf.json');
-
+const dbPath = path.join(__dirname,"data.db")
 let db = null;
 
 const initializeDBAndServer = async () => {
@@ -20,11 +15,7 @@ const initializeDBAndServer = async () => {
         db = await open ({
             filename: dbPath,
             driver : sqlite3.Database
-        });
-
-        app.listen(port, () => {
-            console.log(`Server Running on: ${port}`);
-        });
+        })
     }
     catch(error){
         console.log(`DB Error: ${error.message}`);
@@ -32,7 +23,12 @@ const initializeDBAndServer = async () => {
     }
 }
 
-initializeDBAndServer();
+initializeDBAndServer();*/
+
+const port = 4000;
+const books = require('./books.json');
+const shelf_books = require('./shelf.json');
+
 
 app.get("/", async (request, response) => {
     response.send(books);
@@ -40,6 +36,8 @@ app.get("/", async (request, response) => {
 
 app.get("/shelf", async (request, response) => {
     response.send(shelf_books);
-})
+});
 
-app.get("/books/:id", )
+app.listen(port, () => {
+    console.log(`Server Running on: ${port}`);
+});
